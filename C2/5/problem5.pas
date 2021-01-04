@@ -5,7 +5,7 @@ const
 
 var
   a: array [1..N] of integer;
-  i, j: integer;
+  i, j, min: integer;
 
 begin
   //случайные числа.
@@ -22,12 +22,13 @@ begin
   for i := 1 to N do
     if a[i] > 20 then
       break;
-  j := a[i];
-  for i := 1 to N do
+  min := a[i];
+  j := i;
+  for i := j to N do
     if a[i] > 20 then
-      if a[i] < j then
-        j := a[i];
+      if a[i] < min then
+        min := a[i];
 
-  Writeln(j);
+  Writeln(min);
 
 end.
