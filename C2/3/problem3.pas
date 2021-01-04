@@ -9,12 +9,12 @@ var
   s: real;
 
 begin
-  //рандомные числа.
+  //случайные числа.
   randomize();
   for i := 1 to N do
     a[i] := random(41) + 160;
 
-  //вывод рандомных чисел.
+  //вывод случайных чисел.
   for i := 1 to N do
     Write(a[i], ' ');
   Writeln();
