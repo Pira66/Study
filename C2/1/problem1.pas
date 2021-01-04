@@ -25,8 +25,8 @@ begin
   j := a[i];
   for i := 1 to N do
     if (a[i] mod 2 = 0) and (a[i] mod 3 <> 0) then
-        if a[i] < j then
-          j := a[i];
+      if a[i] < j then
+        j := a[i];
 
   //вывод минимального числа, которое не делится на 3.
   Writeln(j);
