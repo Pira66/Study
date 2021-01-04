@@ -27,14 +27,14 @@ begin
   begin
     if a[i] > 20 then
       x := x + a[i];
-      y := y + 1;
+    y := y + 1;
   end;
 
   //s - среднее арифм.
   s := x / y;
 
   //вывод ср.аримф. до сотых.
-  Writeln(s:0:2);
+  Writeln(s: 0: 2);
 
 end.
 
