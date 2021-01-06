@@ -5,7 +5,7 @@ const
 
 var
   a: array [1..N] of integer;
-  i, j, min: integer;
+  i, min: integer;
 
 begin
   //случайные числа.
@@ -19,15 +19,10 @@ begin
   Writeln();
 
   //минимальное чётное число, которое не делится на 3.
-  for i := 1 to N do
-    if (a[i] mod 2 = 0) and (a[i] mod 3 <> 0) then
-      break;
-  j := i;
-  min := a[i];
-  for i := j to N do
-    if (a[i] mod 2 = 0) and (a[i] mod 3 <> 0) then
-      if a[i] < min then
-        min := a[i];
+  min := 1001;
+  while min > 0 do
+    if a[i] < min then
+      min := a[i];
 
   //вывод минимального чётного числа, которое не делится на 3.
   Writeln(min);
