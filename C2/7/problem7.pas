@@ -5,10 +5,11 @@ const
 
 var
   a: array [1..N] of integer;
-  i, j, x: integer;
+  i, x: integer;
 
 begin
   //случайные числа в диапазоне от -32768 до 32767.
+  randomize();
   for i := 1 to N do
     a[i] := random(65535) - 32768;
 
@@ -19,20 +20,15 @@ begin
 
   readln(x);
 
-  //если заданное число есть в массиве, то j примет значение 1.
-  j := 0;
-  for i := 1 to N do
-    if a[i] = x then
-    begin
-      j := j + 1;
-      break;
-    end;
+  //поиск числа, равного значению x.
+  i := N;
+  while (x <> a[i]) and (i > 1) do
+    i := i - 1;
 
-  if j = 1 then
+  if a[i] = x then
     Writeln(i)
   else
-    Writeln('The value is not found');
+    Writeln('Znachenie ne naideno');
 
 end.
-
 
