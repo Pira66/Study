@@ -20,7 +20,7 @@ begin
 
   //минимальное чётное число, которое не делится на 3.
   min := 1001;
-  while min > 0 do
+  for i := 1 to N do
     if a[i] < min then
       min := a[i];
 
