@@ -9,14 +9,17 @@ var
   s: real;
 
 begin
+  //случайные числа.
   randomize();
   for i := 1 to N do
     a[i] := random (1001);
 
+  //вывод случайных чисел.
   for i := 1 to N do
     Write(a[i], ' ');
   Writeln();
 
+  //среднее арифм. всех нечётных чсиел.
   x := 0;
   y := 0;
   for i := 1 to N do
