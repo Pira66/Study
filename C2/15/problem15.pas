@@ -22,7 +22,7 @@ begin
   s := 0;
   j := 0;
   for i := 1 to N do
-    if (a[i] div 1000 = 0) and (a[i] mod 1000 <> 0) and (a[i] mod 2 <> 0) then
+    if (a[i] div 1000 = 0) and (a[i] >= 100) and (a[i] mod 2 <> 0) then
     begin
       s += a[i];
       j += 1;
