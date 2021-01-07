@@ -24,7 +24,9 @@ begin
     if (a[i] < min) and (a[i] div 1000 = 0) and (a[i] >= 100) then
       min := a[i];
 
-  Writeln(min);
+  if min <> 10001 then
+    Writeln(min) else
+    Writeln('Takih chisel net');
 
 end.
 
