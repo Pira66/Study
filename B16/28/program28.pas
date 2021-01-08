@@ -14,12 +14,12 @@ begin
     n-=4;
     F(n, a);
   end;
-  Writeln(a);
 end;
 
 begin
   n := 1;
   repeat
+    Writeln(a);
     a := 0;
     n += 1;
     F(n, a);
