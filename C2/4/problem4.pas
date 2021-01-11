@@ -24,11 +24,11 @@ begin
   x := 0;
   y := 0;
   for i := 1 to N do
-  begin
     if a[i] > 0 then
+    begin
       x := x + a[i];
-    y := y + 1;
-  end;
+      y := y + 1;
+    end;
 
   //ср. арифм.
   s := x / y;
