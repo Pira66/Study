@@ -5,11 +5,9 @@ var
 
 function f(n: integer): integer;
 begin
-  Writeln(n);
   if n > 0 then
   begin
     d := n mod 10 + f(n div 10);
-    Writeln(d);
     f := d;
   end
   else
@@ -22,6 +20,6 @@ begin
     n += 1;
     d := 0;
     f(n);
-  until d > 5;
-  Writeln(n, ' ', d); //799999, 52
+  until d > 51;
+  Writeln(n, ' ', d);
 end.
