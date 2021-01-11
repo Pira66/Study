@@ -1,7 +1,7 @@
 program problem2;
 
 const
-  N = 30;
+  N = 5;
 
 var
   a: array[1..N] of integer;
@@ -24,11 +24,11 @@ begin
   x := 0;
   y := 0;
   for i := 1 to N do
-  begin
     if a[i] > 20 then
+    begin
       x := x + a[i];
-    y := y + 1;
-  end;
+      y := y + 1;
+    end;
 
   //s - среднее арифм.
   s := x / y;
