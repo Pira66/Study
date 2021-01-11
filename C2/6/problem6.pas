@@ -1,6 +1,5 @@
 program problem6;
 
-
 const
   N = 30;
 
@@ -22,13 +21,12 @@ begin
 
   //средний балл.
   for i := 1 to N do
-    j += a[i];
-  s := j / N;
+    s += a[i];
 
   //кол-во учеников, у которых балл выше среднего.
   j := 0;
   for i := 1 to N do
-    if a[i] > s then
+    if a[i] > s / N then
       j := j + 1;
 
   Writeln(j);
