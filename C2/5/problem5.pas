@@ -20,12 +20,12 @@ begin
 
   //минимальный проходной балл.
   for i := 1 to N do
-    if a[i] > 20 then
+    if a[i] >= 20 then
       break;
   min := a[i];
   j := i;
   for i := j to N do
-    if a[i] > 20 then
+    if a[i] >= 20 then
       if a[i] < min then
         min := a[i];
 
