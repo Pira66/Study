@@ -27,7 +27,7 @@ begin
     s += a[i, i];
 
   k := 0;
-  for i:= 1 to N do
+  for i := 1 to N do
   begin
     for j:= 1 to N do
       if (a[i, j] >= 0) and (a[i, j] * N > s) then
