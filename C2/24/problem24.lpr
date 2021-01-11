@@ -33,6 +33,6 @@ begin
     Sum += max;
   end;
 
-Writeln(Sum);
+  Writeln(Sum);
 
 end.
