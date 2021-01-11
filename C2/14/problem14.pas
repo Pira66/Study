@@ -18,6 +18,7 @@ begin
   Writeln();
 
   //сумма элементов массива, кратных тринадцати.
+  s := 0;
   for i := 1 to N do
     if a[i] mod 13 = 0 then
       s += a[i];
