@@ -15,10 +15,11 @@ begin
       a[i, j] := random(65535) - 32767;
   end;
 
-  for i:= 1 to N do
+  for i := 1 to N do
   begin
-    for j:= 1 to N do
-      Write(a[i,j], ' ');
+    for j := 1 to N do
+      Write(a[i, j]:6, ' ');
+    Writeln()
   end;
   Writeln();
 
