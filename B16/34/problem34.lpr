@@ -1,25 +1,24 @@
 program problem34;
 
+const
+  Lim = 100000000;
+
 var
-  n, d: integer;
-
-function f(n: integer): integer;
-begin
-  if n > 0 then
-  begin
-    d := n mod 10 + f(n div 10);
-    f := d;
-  end
-  else
-    f := 0;
-end;
+  n, i: integer;
+  cache: array[1..Lim] of int64;
 
 begin
-  n := 0;
+  for i := 1 to 9 do
+    cache[i] := i;
+  cache[10] := 1;
+  cache[11] := 2;
+  cache[12] := 3;
+
+  n := 12;
   repeat
     n += 1;
-    d := 0;
-    f(n);
-  until d > 51;
-  Writeln(n, ' ', d);
+    cache[n] := (n mod 10) + cache[n div 10];
+  until cache[n] > 5000000000000;
+
+  Writeln(n, ' ', cache[n]);//но ошибка
 end.
