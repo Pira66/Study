@@ -1,27 +1,22 @@
 program program28;
 
-var
-  n, a: integer;
+const Lim = 100000000;
 
-  procedure F(n: integer);
-  begin
-    a := a + 2 * n + 1;
-    if n > 1 then
-    begin
-      a := a + 3 * n - 8;
-      F(n - 1);
-      F(n - 4);
-    end;
-  end;
+var
+  n: integer;
+  cache: array[1..Lim] of int64;
 
 begin
-  n := 1;
+  cache[1] := 3;
+  cache[2] := 3;
+  cache[3] := 10;
+  cache[4] := 24;
+
+  n := 4;
   repeat
-    a := 0;
     n += 1;
-    F(n);
-  until a > 5000000;
+    cache[n] := (5 * n - 7) + cache[n - 1] + cache[n - 4];
+  until cache[n] > 5000000000000;
 
-  Writeln(n, ' ', a);
+  Writeln(n, ' ', cache[n]);
 end.
-
