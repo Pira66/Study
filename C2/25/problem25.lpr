@@ -18,8 +18,9 @@ begin
 
   for i := 1 to N do
   begin
-    for j := 1 to M do
-      Write(a[i, j], ' ');
+    for j := 1 to N do
+      Write(a[i, j]:6 , ' ');
+    Writeln()
   end;
   Writeln();
 
