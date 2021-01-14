@@ -4,7 +4,7 @@ const
   N = 70;
 var
   a: array [1..N] of integer;
-  i, m: integer;
+  i, m, j: integer;
 
 begin
   //случайные числа.
@@ -17,13 +17,23 @@ begin
     Write(a[i], ' ');
   Writeln();
 
+
+
   //наименьшее положительное нечетное число, содержащееся в массиве.
-  m := 32768;
   for i := 1 to N do
-    if (a[i] < m) and (a[i] >= 0) and (a[i] mod 2 <> 0) then
+    if (a[i] > 0 ) and (a[i] mod 2 <> 0) then
+    begin
+      m := a[i];
+      j := i;
+      break;
+    end;
+
+  for i := j to N do
+    if (a[i] > 0) and (a[i] < m) and (a[i] mod 2 <> 0) then
       m := a[i];
 
   Writeln(m);
+
 
 end.
 
