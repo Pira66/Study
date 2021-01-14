@@ -5,7 +5,7 @@ const
 
 var
   a:array[1..N] of integer;
-  i, max, j, k: integer;
+  i, max, k: integer;
 
 begin
   randomize();
@@ -16,18 +16,18 @@ begin
     Write(a[i], ' ');
   Writeln();
 
-  max := -32769;
-  for i := 1 to N do
-    if a[i] > max then
+  max := a[1];
+  k := 1;
+  for i := 2 to N do
+  begin
+    if (a[i] > max)  then
     begin
+      k := 0;
       max := a[i];
-      j := i;
     end;
-
-  k := 0;
-  for i := j + 1 to N do
     if a[i] = max then
       k += 1;
+  end;
 
   Writeln(k);
 
