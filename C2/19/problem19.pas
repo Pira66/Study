@@ -19,8 +19,15 @@ begin
   Writeln();
 
   //наименьшее содержащееся в массиве положительное число, десятичная запись которого оканчивается цифрой 7.
-  m := 32768;
   for i := 1 to N do
+    if (a[i] > 0) and (a[i] mod 10 = 7) then
+    begin
+      m := a[i];
+      j := i;
+      break;
+    end;
+
+  for i := j + 1 to N do
     if (a[i] < m) and (a[i] mod 10 = 7) then
       m := a[i];
 
