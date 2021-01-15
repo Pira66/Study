@@ -21,7 +21,7 @@ begin
   //максимальная температура во время заморозков.
   max := -21;
   for i := 1 to N do
-    if (a[i] > max) and (a[i] < 0) then
+    if (a[i] < 0) and (a[i] > max) then
       max := a[i];
 
   Writeln(max);
