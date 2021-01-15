@@ -18,11 +18,10 @@ begin
   Writeln();
 
   for i := 1 to N do
-  begin
-    b[i] := a[i];
-    if b[i] < 0 then
-      b[i] := b[i] * -1;
-  end;
+    if a[i] >= 0 then
+      b[i] := a[i]
+    else
+      b[i] := -a[i];
 
   for i := 1 to N do
     Write(b[i], ' ');
