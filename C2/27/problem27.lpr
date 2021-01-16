@@ -24,11 +24,15 @@ begin
   Writeln();
 
   max := a[1, 1];
+  ns := 1;
   for i := 1 to N do
   begin
     for j := 1 to N do
       if a[i, j] > max then
+      begin
+        max := a[i, j];
         ns := i;
+      end;
   end;
 
   s := 0;
