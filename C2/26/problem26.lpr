@@ -26,13 +26,9 @@ begin
   min := 0;
   for i := 1 to N do
   begin
-    j := 0;
     s := 0;
-    while j < M do
-    begin
-      for j := 1 to M do
-        s += a[i, j];
-    end;
+    for j := 1 to M do
+      s += a[i, j];
     if min = 0 then
     begin
       min := s;
