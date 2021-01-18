@@ -1,36 +1,29 @@
 program problem33;
 
-Uses
-  Math;
-
 const
-  N = 30;
+  N = 10;
 var
   a: array [1..N] of integer;
-  i, min1, min2, rp, rv, r: integer;
+  i, min1, min2, rv, r: integer;
 
 begin
   randomize();
   for i := 1 to N do
-    a[i] := random(65535) - 32767;
+    a[i] := random(11) - 5;
 
   for i := 1 to N do
     Write(a[i], ' ');
   Writeln();
 
-  if a[1] - a[2] < a[2] - a[1] then
-    r := abs(a[1] - a[2])
-  else
-    r := abs(a[2] - a[1]);
+  r := abs(a[2] - a[1]);
   min1 := 1;
   min2 := 2;
   for i := 3 to N do
   begin
-    rp := a[i - 1] - a[i];
     rv := a[i] - a[i - 1];
-    if (abs(rp) < r) or (abs(rv) < r) then
+    if abs(rv) < r then
     begin
-      r := min(abs(rp),abs(rv));
+      r := abs(rv);
       min1 := i - 1;
       min2 := i;
     end;
