@@ -4,7 +4,7 @@ const
   N = 10;
 var
   a: array [1..N] of integer;
-  i, min1, min2, rv, r: integer;
+  i, min1, min2, r, j: integer;
 
 begin
   randomize();
@@ -18,18 +18,18 @@ begin
   r := abs(a[2] - a[1]);
   min1 := 1;
   min2 := 2;
-  for i := 3 to N do
+  for i := 1 to N - 1 do
   begin
-    rv := a[i] - a[i - 1];
-    if abs(rv) < r then
+    for j := 1 + i to N do
+    if abs(a[i] - a[j]) < r then
     begin
-      r := abs(rv);
-      min1 := i - 1;
-      min2 := i;
+      r := abs(a[i] - a[j]);
+      min1 := i;
+      min2 := j;
     end;
   end;
 
-  Writeln(min1, ' ', min2);
+  Write(min1, ' ', min2);
 
 end.
 
