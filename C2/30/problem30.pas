@@ -36,7 +36,6 @@ begin
   if (vtoe <> a[1]) then
     pe += 1;
 end;
-//написать положительный элемент(pe).
 
 begin
   randomize();
