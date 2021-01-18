@@ -1,7 +1,12 @@
 program DUBL;
 
+type
+  p = record
+    a, b: integer;
+  end;
+
 var
-//объявление пары переменных??
+x: integer;
 
 function f1(x: integer): pair;
   var L, M: integer;
