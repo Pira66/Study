@@ -1,6 +1,6 @@
 program program28;
 
-const Lim = 100000000;
+const Lim = 100;
 
 var
   n: integer;
