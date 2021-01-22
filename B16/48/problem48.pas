@@ -1,7 +1,7 @@
 program problem48;
 
 var
-  k: integer;
+  k, z: integer;
 
 function F(n: integer): integer;
 begin
@@ -15,11 +15,13 @@ end;
 
 begin
   k := 1;
-  While F(k) < 2 do
+  z := F(1);
+  While z < 100000000 do
   begin
     k += 1;
+    z := F(k);
   end;
 
-  Writeln(k);
+  Writeln(k - 1);
 end.
 
