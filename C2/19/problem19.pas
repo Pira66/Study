@@ -11,7 +11,7 @@ begin
   //случайные числа.
   randomize();
   for i := 1 to N do
-    a[i] := random(65536) - 32767;
+    a[i] := random(101) - 50;
 
   //вывод случайных чисел.
   for i := 1 to N do
@@ -19,17 +19,14 @@ begin
   Writeln();
 
   //наименьшее содержащееся в массиве положительное число, десятичная запись которого оканчивается цифрой 7.
+
+  j := 0;
   for i := 1 to N do
-    if (a[i] > 0) and (a[i] mod 10 = 7) then
+    if (a[i] mod 10 = 7) and ((j = 0) or (a[i] < m)) then
     begin
       m := a[i];
-      j := i;
-      break;
+      j := 1;
     end;
-
-  for i := j + 1 to N do
-    if (a[i] < m) and (a[i] mod 10 = 7) then
-      m := a[i];
 
   Writeln(m);
 
