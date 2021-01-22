@@ -16,7 +16,6 @@ end;
 begin
   for i := 1 to 1000 do
   begin
-    z := 0;
     z := F(i);
     if z mod 2 = 0 then
       k += 1;
