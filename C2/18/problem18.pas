@@ -10,30 +10,22 @@ begin
   //случайные числа.
   randomize();
   for i := 1 to N do
-    a[i] := random(65536) - 32767;
+    a[i] := random(101) - 50;
 
   //вывод случайных чисел.
   for i := 1 to N do
     Write(a[i], ' ');
   Writeln();
 
-
-
-  //наименьшее положительное нечетное число, содержащееся в массиве.
+  j := 0;
   for i := 1 to N do
-    if (a[i] > 0 ) and (a[i] mod 2 <> 0) then
+    if (a[i] > 0) and (a[i] mod 2 <> 0) and ((j = 0) or (a[i] < m)) then
     begin
       m := a[i];
-      j := i;
-      break;
+      j := 1;
     end;
 
-  for i := j to N do
-    if (a[i] > 0) and (a[i] < m) and (a[i] mod 2 <> 0) then
-      m := a[i];
-
   Writeln(m);
-
 
 end.
 
