@@ -1,7 +1,7 @@
 program problem38;
 
 var
-  n, m, k: integer;
+  n, m, k, z, i ,j: integer;
 
 function F(n, m: integer): integer;
 begin
@@ -15,21 +15,20 @@ begin
 end;
 
 begin
-  n := 1;
-  m := 1;
-  while n > 0 do
-  begin
-    n += 1;
-    F(n, m);
-    if F(n, m) = 30 then
+  for i := 1 to 30 do
+    for j := 1 to 30 do
     begin
-      k += 1;
-      break;
+      n := j;
+      m := i;
+      z := F(n, m);
+      if z = 30 then
+      begin
+        Writeln(n, ' ',m);
+        k += 1;
+      end;
     end;
-  end;
 
-  Writeln(k);  //нужно определить количество различных значений n таких,
-               //что n и m – натуральные числа, а значение F(n, m) равно числу 30.
-end.           //Но в программе именяется только значение n, m остаётся 1. Таким образом получается 1 значение n, так как дальше идут только числа > 30.
+  Writeln(k);
 
-//???
+end.
+
