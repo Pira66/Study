@@ -15,7 +15,7 @@ end;
 
 begin
   n := 0;
-  while n < 1001 do
+  while n < 1000 do
   begin
     n += 1;
     fzn := F(n);
