@@ -5,7 +5,7 @@ const
   M = 20;
 var
   a: array[1..N, 1..M] of integer;
-  i, j, s, min, ns: integer;
+  i, j, s, min, ns, f: integer;
 
 begin
   randomize();
@@ -23,13 +23,13 @@ begin
   end;
   Writeln();
 
-  min := 0;
+  f := 0;
   for i := 1 to N do
   begin
     s := 0;
     for j := 1 to M do
       s += a[i, j];
-    if min = 0 then
+    if f = 0 then
     begin
       min := s;
       ns := i;
