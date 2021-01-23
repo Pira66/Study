@@ -21,7 +21,7 @@ begin
   //минимальное трехзначное число.
   min := 10001;
   for i := 1 to N do
-    if (a[i] < min) and (a[i] >= 100) and (a[i] < 1000) then
+    if (a[i] < min) and (a[i] div 1000 = 0) and (a[i] >= 100) then
       min := a[i];
 
   if min <> 10001 then
