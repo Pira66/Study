@@ -23,9 +23,9 @@ begin
   x := 0;
   y := 0;
   for i := 1 to N do
-    if (a[i] mod 10 = 5) or (a[i] mod 10 = -5) then
+    if abs(a[i]) mod 10 = 5 then
     begin
-      x += (a[i]);
+      x += a[i];
       y += 1;
     end;
 
