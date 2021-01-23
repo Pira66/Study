@@ -13,7 +13,7 @@ begin
   for i := 1 to N do
   begin
     for j := 1 to M do
-      a[i, j] := random(65535) - 32767;
+      a[i, j] := random(41) - 20;
   end;
 
   for i := 1 to N do
