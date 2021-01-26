@@ -1,33 +1,43 @@
 program problem34;
 
-var
- n, d, c: integer;
+const
+  Lim = 1000;
 
-function f(n: integer): integer;
+var
+ i: integer;
+ oon, otw, n, d, c: int64;
+ cache: array[1..Lim] of int64;
+
+procedure f(n: integer);
 begin
   c += 1;
-  if (c = 2) and (n > 51) then
-    exit;
+  if c = 2 then
+    oon := n;
   if n > 0 then
   begin
-    d := n mod 10 + f(n div 10);
+    d := n mod 10 + cache[n div 10];
+    cache[n] := d;
     c += 1;
-    if (c = 2) and (d > 51) then
-      exit;
-    f := d;
+    if c = 2 then
+      otw := d;
   end
   else
-    f := 0;
+    cache[n] := 0;
+
 end;
 
 begin
+  for i := 1 to 9 do
+    cache[i] := i;
+
   n := 0;
   repeat
     n += 1;
     d := 0;
     c := 0;
+    cache :=
     f(n);
-  until d > 51;
+  until (oon > 5000000000000) or (otw > 5000000000000);
 
-  Writeln(n, ' ', d);
-end.                //почему-то записываются числа в переменные, хотя этого быть не должно
+  Writeln(n, ' ', cache[n]);
+end.
