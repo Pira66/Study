@@ -26,14 +26,22 @@ begin
   gmax := a[1, 1];
   gsum := gmax;
   for j := 2 to N do
+  begin
+    if a[1, j] > gmax then
+      gmax := a[1, j];
     gsum += a[1, j];
+  end;
 
   for i := 2 to N do
   begin
     lmax := a[i, 1];
     lsum := lmax;
     for j := 2 to N do
-      lsum += a[i, j];
+    begin
+    if a[i, j] > lmax then
+      lmax := a[i, j];
+    lsum += a[i, j];
+  end;
 
     if (lmax > gmax) then
     begin
