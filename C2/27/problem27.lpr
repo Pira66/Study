@@ -5,7 +5,7 @@ const
 
 var
   a: array[1..N, 1..N] of integer;
-  i, j, t, max, maxw, sum, sumw: integer;
+  i, j, gmax, gsum, lmax, lsum: integer;
 
 begin
   randomize();
@@ -23,36 +23,26 @@ begin
   end;
   Writeln();
 
-  max := a[1, 1];
-  sum := max;
-  t := 0;
+  gmax := a[1, 1];
+  gsum := gmax;
+  for j := 2 to N do
+    gsum += a[1, j];
 
-  for i := 1 to N do
+  for i := 2 to N do
   begin
-    if i <> 1 then
-      sum := 0;
-    for j := 1 to N do
+    lmax := a[i, 1];
+    lsum := lmax;
+    for j := 2 to N do
+      lsum += a[i, j];
+
+    if (lmax > gmax) then
     begin
-      if a[i, j] > max then
-        max := a[i, j];
-      if t <> 0 then
-        sum += a[i, j];
-      t += 1;
+      gmax := lmax;
+      gsum := lsum;
     end;
-    if i = 1 then
-    begin
-      sumw := sum;
-      maxw := max
-    end
-    else
-      if max > maxw then
-      begin
-        sumw := sum;
-        maxw := max;
-      end;
   end;
 
-  Writeln(sumw);
+  Writeln(gsum);
 
 end.
 
