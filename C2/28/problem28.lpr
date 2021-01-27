@@ -28,7 +28,7 @@ begin
   k := 1;
   min := a[1];
   for i := 2 to N do
-    if abs(abs(a[i]) - abs(s)) < abs(abs(min) - abs(s)) then
+    if abs(a[i] - s) < abs(min - s) then
     begin
       min := a[i];
       k := i;
