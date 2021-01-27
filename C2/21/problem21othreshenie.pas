@@ -1,30 +1,27 @@
 program problem21othreshenie;
 
 const
-  N = 30;
+  N = 10;
 
 var
-  a: array[1..2] of integer;
-  i, max, k, kanmax: integer;
+  i, max, x, q: integer;
 
 begin
-  readln(a[1]);
-  max := a[1];
-  k := 1;
+  read(max);
+  q := 1;
 
   for i := 2 to N do
   begin
-    readln(a[2]);
-    kanmax := a[2];
-    if (kanmax > max) then
+    readln(x);
+    if (x = max) then
+      q += 1
+    else if (x > max) then
     begin
-      k := 0;
-      max := kanmax;
+      max := x;
+      q := 1;
     end;
-    if kanmax = max then
-      k += 1;
   end;
 
-  Writeln(k);
+  Writeln('kol-vo max elementov:', ' ',q);
 
 end.
