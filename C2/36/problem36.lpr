@@ -4,12 +4,16 @@ const
   N = 30;
 var
   a: array [1..N] of integer;
-  i, k, kMax: integer;
+  i, k, kmax: integer;
 
 begin
   randomize();
   for i := 1 to N do
-    a[i] := random(65535) - 32767;
+    a[i] := random(101) - 50;
+
+  //для теста.
+  a[23] := -3;
+  a[24] := -3;
 
   for i := 1 to N do
     Write(a[i], ' ');
