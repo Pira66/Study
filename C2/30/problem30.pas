@@ -28,19 +28,9 @@ begin
     if q = 3 then break;
   end;
 
-  Writeln(i);
-
-end.
-
-
-
-
-
-
-
-
-
-
-
+  if q = 3 then
+    Writeln(i)
+  else
+    Writeln('V massive menshe treh polozhitelnih elementov');
 
 end.
