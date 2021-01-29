@@ -4,7 +4,7 @@ Uses
   Math;
 
 const
-  N = 30;
+  N = 10;
 
 var
   a: array[1..N] of integer;
@@ -13,7 +13,7 @@ var
 begin
   randomize();
   for i := 1 to N do
-    a[i] := random(65535) - 32767;
+    a[i] := random(41) - 20;
 
   for i := 1 to N do
     Write(a[i], ' ');
