@@ -26,7 +26,6 @@ begin
       min2 := i;
     end;
 
-  Writeln(min, ' ', min2);
 
 
  if a[1] < a[2] then begin
