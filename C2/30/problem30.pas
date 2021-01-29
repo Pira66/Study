@@ -5,68 +5,42 @@ const
 
 var
   a: array [1..N] of integer;
-  i, maxe, pe, ve, te, ne, k, nz: integer;
+  i, q: integer;
 
-procedure Pel(var pere, vtoe: integer);
-begin
-  ne := 1;
-  if k = 1 then
-  begin
-    pere := a[1];
-    for i := 1 to N do
-    begin
-      if (a[i] > pere) and (a[i] >= 0) then
-        pere := a[i];
-    end;
-  end
-  else
-  begin
-    vtoe := a[1];
-    for i := 1 to N do
-    begin
-      if (a[i] < pere) and (a[i] > vtoe) and (a[i] >= 0) then
-      begin
-        vtoe := a[i];
-        ne := i;
-      end;
-    end;
-  end;
-  if (vtoe = a[1]) and (vtoe >= 0) then
-    pe += 1;
-  if (vtoe <> a[1]) then
-    pe += 1;
-end;
 
 begin
   randomize();
   for i := 1 to N do
-    a[i] := random(65535) - 32767;
+    a[i] := random(41) - 20;
 
   for i := 1 to N do
     Write(a[i], ' ');
   Writeln();
 
-  pe := 0;
-  nz := 0;
-  //максимум.
-  nz := 0;
-  k := 1;
-  maxe := a[1];
-  Pel(maxe, nz);
+  //номер третьего положительного элемента массива.
+  q := 0;
+  for i := 1 to N do
+  begin
+    if a[i] > 0 then
+    begin
+      q += 1;
+    end;
+    if q = 3 then break;
+  end;
 
-  //второй элемент.
-  k := 2;
-  ve := a[1];
-  Pel(maxe, ve);
+  Writeln(i);
 
-  //третий элемент.
-  te := a[1];
-  Pel(ve, te);
+end.
 
-  //вывод.
-  if pe = 3 then
-    Writeln(ne)
-  else
-    Writeln('V Massive menshe treh polozhitelnih elementov');
+
+
+
+
+
+
+
+
+
+
 
 end.
