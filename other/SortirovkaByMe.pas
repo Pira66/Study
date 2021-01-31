@@ -1,76 +1,44 @@
 program SortirovkaByMe;
 
+const
+  N = 10;
+
 var
-  a: array[1..5] of integer;
-  i, c, n, min, t: integer;
+  a: array[1..N] of integer;
+  i, c, idx, min, t, j: integer;
 
 begin
   randomize();
-  for i := 1 to 5 do
+  for i := 1 to N do
     a[i] := random(41) - 20;
 
-  for i := 1 to 5 do
+  for i := 1 to N do
     Write (a[i], ' ');
   Writeln();
 
-  //минимум.
-  min := a[1];
-  for i := 2 to 5 do
-    if a[i] <= min then
+  for i := 1 to N - 1 do
+  begin
+    min := a[i];
+    t := 0;
+    for j := i + 1 to N do
+      if a[j] <= min then
+      begin
+        min := a[j];
+        idx := j;
+        t += 1;
+      end;
+    if t <> 0 then
     begin
-      min := a[i];
-      n := i;
+      c := a[i];
+      a[i] := a[idx];
+      a[idx] := c;
     end;
-  c := a[1];
-  a[1] := a[n];
-  a[n] := c;
+  end;
 
-  //числа по неубыванию.
-  min := a[2];
-  t := 0;
-  for i := 3 to 5 do
-    if a[i] <= min then
-    begin
-      min := a[i];
-      n := i;
-      t += 1;
-    end;
-  if t <> 0 then
-    c := a[2];
-    a[2] := a[n];
-    a[n] := c;
-
-  min := a[3];
-  t := 0;
-  for i := 4 to 5 do
-    if a[i] <= min then
-    begin
-      min := a[i];
-      n := i;
-      t += 1;
-    end;
-  if t <> 0 then
-    c := a[3];
-    a[3] := a[n];
-    a[n] := c;
-
-  min := a[4];
-  t := 0;
-  for i := 5 to 5 do
-    if a[i] <= min then
-    begin
-      min := a[i];
-      n := i;
-      t += 1;
-    end;
-  if t <> 0 then
-    c := a[4];
-    a[4] := a[n];
-    a[n] := c;
-
-  for i := 1 to 5 do
+  for i := 1 to N do
     Write (a[i], ' ');
   Writeln();
+
 
 end.
 
