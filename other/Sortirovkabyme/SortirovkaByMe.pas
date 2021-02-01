@@ -5,7 +5,11 @@ const
 
 var
   a: array[1..N] of integer;
-  i, c, idx, min, t, j: integer;
+  i, j: integer;//переменная цикла
+  c: integer;//переменная для замены
+  idx: integer;//индекс элемента массива
+  min: integer;//минимальный элемент
+  t: integer;//флаг(нашли эелмент)
 
 begin
   randomize();
