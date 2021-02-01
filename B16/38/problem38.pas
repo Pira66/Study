@@ -1,7 +1,7 @@
 program problem38;
 
 var
-  n, m, k, z, i ,j: integer;
+  n, m, z, kolvon, i ,j: integer;
 
 function F(n, m: integer): integer;
 begin
@@ -22,13 +22,10 @@ begin
       m := i;
       z := F(n, m);
       if z = 30 then
-      begin
-        Writeln(n, ' ',m);
-        k += 1;
-      end;
+        kolvon += 1;
     end;
 
-  Writeln(k);
+  Writeln(kolvon);
 
 end.
 
