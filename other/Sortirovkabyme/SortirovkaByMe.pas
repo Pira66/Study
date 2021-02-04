@@ -5,11 +5,9 @@ const
 
 var
   a: array[1..N] of integer;
-  i, j: integer;//переменная цикла
-  c: integer;//переменная для замены
-  idx: integer;//индекс элемента массива
-  min: integer;//минимальный элемент
-  t: integer;//флаг(нашли эелмент)
+  i, j: integer;
+  t: integer;//временное хранение значения заменяемого элемента
+  m: integer;//индекс последнего минимума
 
 begin
   randomize();
@@ -22,21 +20,13 @@ begin
 
   for i := 1 to N - 1 do
   begin
-    min := a[i];
-    t := 0;
+    m := i;
     for j := i + 1 to N do
-      if a[j] <= min then
-      begin
-        min := a[j];
-        idx := j;
-        t += 1;
-      end;
-    if t <> 0 then
-    begin
-      c := a[i];
-      a[i] := a[idx];
-      a[idx] := c;
-    end;
+      if a[j] < a[m] then
+        m := j;
+    t := a[i];
+    a[i] := a[m];
+    a[m] := t;
   end;
 
   for i := 1 to N do
