@@ -40,7 +40,7 @@ begin
             end;
         end;
 
-  Writeln(maxS: 0: 2);
+  Writeln(maxS: 0: 1);
 
 end.
 
