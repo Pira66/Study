@@ -7,10 +7,10 @@ var
   i, j, k: integer;
 
 begin
-  for k := 1 to N - 2 do
-    for j := k + 1 to N - 1 do
-      for i := j + 1 to N do
-        Writeln(k, ' ', j, ' ', i);
+  for i := 1 to N - 2 do
+    for j := i + 1 to N - 1 do
+      for k := j + 1 to N do
+        Writeln(i, ' ', j, ' ', k);
 
 end.
 
