@@ -23,9 +23,7 @@ begin
       for k := j + 1 to n do
         begin
           if ((y[i] = 0) and (y[j] = 0)) or ((y[j] = 0) and (y[k] = 0)) or ((y[k] = 0) and (y[i] = 0)) then
-            if ((x[i] = 0) and (y[i] <> 0)) or ((x[j] = 0) and (y[j] <> 0)) or ((x[k] = 0) and (y[k] <> 0)) then
-              continue
-            else
+            if ((x[i] > 0) and (x[j] > 0) and (x[k] > 0)) or ((x[i] < 0) and (x[j] < 0) and (x[k] < 0)) then
             begin
               a := sqrt(sqr(x[i] - x[j]) + sqr(y[i] - y[j]));
               b := sqrt(sqr(x[j] - x[k]) + sqr(y[j] - y[k]));
