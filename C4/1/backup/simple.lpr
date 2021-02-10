@@ -10,7 +10,8 @@ var
   a, b, c, P, S, maxS: real;
 
 begin
-
+  assign(input, 'tests\01');
+  reset(input);
 
   readln(n);
   for i := 1 to n do
