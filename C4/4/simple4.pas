@@ -1,5 +1,5 @@
 program simple4;//Среда прогр: Lazarus
-                //версия: 2.0.10
+  //версия: 2.0.10
 const
   Lim = 1000;
 
@@ -19,6 +19,7 @@ begin
   fm := 0;
   q := 0;
   for i := 1 to n do
+  begin
     if a[i] > 1 then
     begin
       q += 1;
@@ -30,20 +31,21 @@ begin
       else
       if a[i] < min then
         min := a[i];
-      if (a[i] < 1) and (a[i] > 0) then
-        if fm = 0 then
-        begin
-          mmin := a[i];
-          fm += 1;
-        end
-        else
-          if a[i] > mmin then
-            mmin := a[i];
     end;
+    if (a[i] < 1) and (a[i] > 0) then
+      if fm = 0 then
+      begin
+        mmin := a[i];
+        fm += 1;
+      end
+      else
+      if a[i] > mmin then
+        mmin := a[i];
+  end;
 
   if q <> 0 then
     Writeln(q, ' ', min: 0: 1)
   else
-    Writeln(1, mmin);
+    Writeln(1, ' ', mmin: 0: 1);
 end.
 
