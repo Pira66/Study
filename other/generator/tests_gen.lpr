@@ -8,7 +8,7 @@ var
   i, j: integer;
   s: string;
 
-procedure print(s: string);
+procedure write_test_data_to_file(s: string);
 begin
   Assign(a, s);
   ReWrite(a);
@@ -23,6 +23,6 @@ end;
 begin
   randomize();
   for i := 10 to 14 do
-    print(IntToStr(i) + '.txt');
+    write_test_data_to_file(IntToStr(i) + '.txt');
 end.
 
