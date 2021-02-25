@@ -1,8 +1,8 @@
 @echo off
-fpc simple1.lpr > NUL
+fpc full_search1.lpr > NUL
 for %%a in (tests\*.a) do (
-  simple1.exe < tests\%%~na > tests\%%~na.out
+  full_search1.exe < tests\%%~na > tests\%%~na.out
   fc /A tests\%%~na.out tests\%%~na.a
   del tests\%%~na.out
 )
-del simple1.exe
+del full_search1.exe
