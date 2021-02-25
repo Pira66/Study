@@ -1,4 +1,4 @@
-program tests_gen;//для задания 1
+program tests_gen;//пример генератора входных данных
 
 Uses
   SysUtils;
