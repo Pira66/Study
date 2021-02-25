@@ -1,4 +1,4 @@
-program tests_gen;
+program tests_gen;//для задания 1
 
 Uses
   SysUtils;
