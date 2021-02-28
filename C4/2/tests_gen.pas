@@ -4,7 +4,6 @@ Uses
   SysUtils;
 
 var
-  a: TextFile;
   i: integer;
   n, lim: integer;
 
