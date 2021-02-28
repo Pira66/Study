@@ -1,29 +1,17 @@
-program tests_gen1;//для задания 1
+program tests_gen;
 
 Uses
   SysUtils;
 
 var
-  a: TextFile;
-  i, j, q, n: integer;
-  s: string;
-
-procedure write_test_data_to_file(s: string);
-begin
-  Assign(a, s);
-  ReWrite(a);
-  Writeln(a, n);
-  for j := 1 to n do
-    Writeln(a, random(21) - 10, ' ', random(21) - 10);
-  Close(a);
-
-
-end;
+  i, n, limot, limdo: integer;
 
 begin
+  n := StrToInt(ParamStr(1));
+  limot := StrToInt(ParamStr(2));
+  limdo := StrToInt(ParamStr(2));
   randomize();
-  q := StrToInt(Paramstr(1));
-  n := StrToInt(Paramstr(2));
-  for i := 1 to q do
-    write_test_data_to_file(IntToStr(i) + '.txt');
+  Writeln(n);
+  for i := 1 to n do
+    Writeln(random(limdo - limot + 1) + limot, ' ', random(limdo - limot + 1) + limot);
 end.
