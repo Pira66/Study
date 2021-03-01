@@ -30,6 +30,7 @@
       <Unit0>
         <Filename Value="optimal.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="optimal1"/>
       </Unit0>
     </Units>
   </ProjectOptions>
