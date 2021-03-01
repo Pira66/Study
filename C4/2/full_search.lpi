@@ -30,6 +30,7 @@
       <Unit0>
         <Filename Value="full_search.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="simple"/>
       </Unit0>
     </Units>
   </ProjectOptions>

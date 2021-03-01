@@ -1,41 +1,37 @@
-program simple2;
+program simple;
+
+Uses
+  Math;
 
 const
   Lim = 1000;
 
 var
   a: array[1..Lim] of integer;
-  n, i, j, min, chmin, f: integer;
+  n, i, j, s, m, em, f: integer;
 
 begin
   readln(n);
   for i := 1 to n do
     readln(a[i]);
 
-  f := 0;
-  min := -1;
+  m := a[1] + a[2];
   for i := 1 to N - 1 do
     for j := i + 1 to N do
     begin
-      if (a[i] + a[j] < min) or (min = -1) then
-        min := a[i] + a[j];
-      if ((a[i] + a[j]) mod 2 = 0) then
+      s := a[i] + a[j];
+      m := min(m, s);
+      if (s mod 2 = 0) and ((s < em) or (f = 0)) then
       begin
-        if f = 0 then
-        begin
-          chmin := a[i] + a[j];
-          f += 1;
-        end
-        else
-          if a[i] + a[j] < chmin then
-            chmin := a[i] + a[j];
+        f := 1;
+        em := s;
       end;
     end;
 
-  if f <> 0 then
-    Writeln(chmin)
+  if f = 1 then
+    Writeln(em)
   else
-    Writeln(min);
+    Writeln(m);
 
 end.
 
