@@ -1,19 +1,16 @@
 program full_search;
 
 Uses
-  Math;
+  Math, StrUtils;
 
 const
   LIM = 1000;
 
 var
   a: array[1..LIM] of longint;
-  i, j, n, R, p: integer;
+  i, j, n, R, p: longint;
 
 begin
-  Assign(input, 'tests/00');
-  reset(input);
-
   readln(n);
   for i := 1 to n do
     readln(a[i]);
@@ -26,6 +23,6 @@ begin
         p := max(p, a[i] * a[j]);
 
   Writeln(p);
-  Writeln(ifthen(p = R, 'Control confirmed', 'Control not confirmed!'));
+  Writeln(ifthen(p = R, 'Control confirmed', 'Control not confirmed'));
 end.
 
