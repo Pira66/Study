@@ -23,6 +23,6 @@ begin
         p := max(p, a[i] * a[j]);
 
   Writeln(p);
-  Writeln(ifthen(p = R, 'Control confirmed', 'Control not confirmed'));
+  Writeln(ifthen(p = R, 'Yes', 'No'));
 end.
 
