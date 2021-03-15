@@ -9,9 +9,11 @@ const
 var
   i: longint;
   a: array[1..LIM] of longint;
-  n, q: integer;
+  n, q, x: integer;
+  s: string;
+  f: text;
 
-function f(): longint;
+function fs(): longint;
 var
   p, i, j: integer;
 begin
@@ -29,15 +31,28 @@ begin
 
   randomize();
   for i := 1 to n do
-    a[i] := random(q);
+    a[i] := 1 + random(q);
+  x := fs();
 
   Writeln(n);
   for i := 1 to n do
     Write(a[i], ' ');
 
-  readln();
+  readln(s);
+  Writeln(x);
 
-  Writeln(f());
+  assign(f, 'tests/' + s);
+  rewrite(f);
+  Writeln(f, n);
+  for i := 1 to n do
+    Writeln(f, a[i]);
+  close(f);
+
+  assign(f, 'tests/' + s + '.a');
+  rewrite(f);
+  Writeln(f, x);
+  Writeln(f, 'Yes');
+  close(f);
 
 end.
 
