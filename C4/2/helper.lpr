@@ -8,7 +8,9 @@ const
 
 var
   a: array[1..NLIM] of integer;
-  i, n, lim: integer;
+  i, n, lim, x: integer;
+  s: string;
+  ff: text;
 
 function full_search(): integer;
 var
@@ -35,13 +37,41 @@ end;
 begin
   n := StrToInt(ParamStr(1));
   lim := StrToInt(ParamStr(2));
+
   randomize();
   for i := 1 to n do
     a[i] := random(lim) + 1;
+  x := full_search();
 
+  Writeln(n);
   for i := 1 to n  do
     Write(a[i], ' ');
 
-  readln();
-  Writeln(full_search());
+  readln(s);
+  Writeln(x);
+
+  Assign(ff, 'tests\' + s);
+  Rewrite(ff);
+  Writeln(ff, n);
+  for i := 1 to n  do
+    Writeln(ff, a[i]);
+  Close(ff);
+
+  Assign(ff, 'tests\' + s + '.a');
+  Rewrite(ff);
+  Writeln(ff, x);
+  Close(ff);
 end.
+
+
+
+
+
+
+
+
+
+
+
+
+
