@@ -3,9 +3,6 @@ program optimal2;
 uses
   Math;
 
-const
-  LIM = 10000;
-
 var
   i, n, x: integer;
   a, b, c, d, e, f, ci, cii: longint;
