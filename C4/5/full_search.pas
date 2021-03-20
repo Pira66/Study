@@ -27,19 +27,10 @@ begin
     for j := i + 1 to n do
       if K[i] = K[j] then
         q += 1;
-    if f = 0 then
-    begin
-      pq := q;
-      number := K[i];
-      f += 1;
-    end
-    else
-    begin
       if q > pq then
         pq := 1;
       if K[i] > number then
         number := K[i];
-    end;
   end;
 
   if pq <> 0 then
