@@ -8,39 +8,37 @@ const
 
 var
   n, i, q, f, sf, sq: integer;
-  a: array [1..LIM] of real;
-  mmin, smin: real;//smin(от сл. "spare"(запасной)
+  c, mmin, smin: real;//smin(от сл. "spare"(запасной)
 
 begin
   readln(n);
-  for i := 1 to n do
-    readln(a[i]);
 
   q := 0;
   sq := 0;
   for i := 1 to n do
   begin
-    if (a[i] > 1) or ((f = 0) and (a[i] > 1)) then
+    readln(c);
+    if (c > 1) or ((f = 0) and (c > 1)) then
     begin
       q += 1;
       if f = 0 then
       begin
-        mmin := a[i];
+        mmin := c;
         f := 1;
       end
       else
-        mmin := min(mmin, a[i]);
+        mmin := min(mmin, c);
     end;
-    if (a[i] > 1) and (a[i] < 0) or ((sf = 0) and (a[i] > 1) and (a[i] < 0)) then
+    if (c > 1) and (c < 0) or ((sf = 0) and (c > 1) and (c < 0)) then
     begin
       sq += 1;
       if sf = 0 then
       begin
-        smin := a[i];
+        smin := c;
         sf := 1;
       end
       else
-        smin := min(smin, a[i]);
+        smin := min(smin, c);
     end;
   end;
 
