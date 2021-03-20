@@ -9,11 +9,13 @@ const
 var
   K: array[1..NLIM] of integer;
   D: array[1..NLIM] of integer;
-  i, n, limo, limt: integer;
+  i, n, q, x, limo, limt: integer;
+  t: text;
+  s: string;
 
-function full_search(): integer;
+function ff(): integer;
 var
-  i, f, pq, n, j, q, number: integer;
+  f, pq, n, j, number: integer;
 
 begin
   for i := 1 to n do
@@ -44,23 +46,36 @@ begin
         number := K[i];
     end;
   end;
-  full_search := ifthen(pq <> 0, number, 0);
+  ff := ifthen(pq <> 0, number, 0);
 end;
 
 begin
   n := StrToInt(ParamStr(1));
   limo := StrToInt(ParamStr(2));
   limt := StrToInt(ParamStr(3));
+
   randomize();
   for i := 1 to n do
   begin
-    D[i] := random(limo);
+    K[i] := random(limo - limt + 1) + limt;
     D[i] := random(limt);
   end;
+  x := ff();
 
-  for i := 1 to n  do
-    Write(D[i], ' ', K[i]);
+  for i := 1 to n do
+    Writeln(D[i], ' ', K[i]);
 
-  readln();
-  Writeln(full_search());
+  readln(s);
+  Writeln(x);
+
+  assign(t, 'tests/' + s);
+  rewrite(t);
+  for i := 1 to n do
+    Writeln(t, D[i], ' ', K[i]);
+  close(t);
+
+  assign(t, 'tests/' + s + '.a');
+  rewrite(t);
+  Writeln(t, x);
+  close(t);
 end.
