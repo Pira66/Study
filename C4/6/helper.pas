@@ -7,10 +7,12 @@ const
   LIM = 1000;
 
 var
-  i, j, n, q: integer;
+  i, j, n, q, x: integer;
   a: array[1..LIM] of integer;
+  f: text;
+  s: string;
 
-function f(): integer;
+function fs(): integer;
 var
   min: integer;
 
@@ -21,22 +23,34 @@ begin
       if j - i >= 4 then
         if a[i] + a[j] < min then
           min := a[i] + a[j];
-  f := min;
+  fs := min;
 end;
 
 begin
-  n := StrToInt(Paramstr(1));
-  q := StrToInt(Paramstr(2));
+  n := StrToInt(ParamStr(1));
+  q := StrToInt(ParamStr(2));
 
   randomize();
   for i := 1 to n do
-    a[i] := random(q);
+    a[i] := 1 + random(q);
+  x := fs();
 
   Writeln(n);
   for i := 1 to n do
     Write(a[i], ' ');
 
-  readln();
+  readln(s);
+  Writeln(x);
 
-  Writeln(f());
+  assign(f, 'tests/' + s);
+  rewrite(f);
+  Writeln(f, n);
+  for i := 1 to n do
+    Writeln(f, a[i]);
+  close(f);
+
+  assign(f, 'tests/' + s + '.a');
+  rewrite(f);
+  Writeln(f, x);
+  close(f);
 end.
