@@ -8,7 +8,7 @@ const
 
 var
   a: array[1..LIM] of longint;
-  i, n, R, fmax, smax, f, ci: integer;
+  i, n, R, fmax, smax, f, ci: longint;
 
 begin
   readln(n);

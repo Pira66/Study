@@ -3,63 +3,50 @@ program optimal2;
 uses
   Math, StrUtils;
 
-const
-  LIM = 10000;
-
 var
-  n, i, R, m, m14, m2, m7, f14, f2, f7, O: integer;
-  a: array [1..LIM] of integer;
+  n, i, x, answer, R, m, m14, m2, m7: longint;
 
 begin
   readln(n);
+
+  m := 0;  //тк в последовательности все числа положительные
+  m14 := 0;
+  m7 := 0;
+  m2 := 0;
   for i := 1 to n do
-    readln(a[i]);
+  begin
+    readln(x);
+
+    if x > m then
+      m := x;
+
+    if x mod 14 = 0 then
+      if x > m14 then
+        m14 := x;
+
+    if (x mod 7 = 0) and (x mod 2 <> 0) then
+      if x > m7 then
+        m7 := x;
+
+    if (x mod 2 = 0) and (x mod 7 <> 0) then
+      if x > m2 then
+        m2 := x;
+  end;
+
+  if (m14 <> 0) and (m <> 0) and (m * m14 > m7 * m2) then
+  begin
+    Writeln(m14 * m);
+    answer := m14 * m;
+  end
+  else
+    if (m7 <> 0) and (m2 <> 0) then
+    begin
+      Writeln(m7 * m2);
+      answer := m7 * m2;
+    end;
+
   readln(R);
 
-  m := a[1];
-  f14 := 0; f7 := 0; f2 := 0;
-  for i := 1 to n do
-  begin
-    if a[i] > m then
-      m := a[i];
+  Writeln(ifthen(answer = R, 'Yes', 'No'));
 
-    if (f14 = 0) and (a[i] mod 14 = 0) then
-    begin
-      m14 := a[i];
-      f14 := 1;
-    end;
-    if (f14 = 1) and (a[i] mod 14 = 0) then
-      if a[i] > m14 then
-        m14 := a[i];
-
-    if (f7 = 0) and (a[i] mod 7 = 0) and (a[i] mod 2 <> 0) then
-    begin
-      m7 := a[i];
-      f7 := 1;
-    end;
-    if (f7 = 1) and (a[i] mod 7 = 0) and (a[i] mod 2 <> 0) then
-      if a[i] > m7 then
-        m7 := a[i];
-
-    if (f2 = 0) and (a[i] mod 2 = 0) and (a[i] mod 7 <> 0) then
-    begin
-      m2 := a[i];
-      f2 := 1;
-    end;
-    if (f2 = 1) and (a[i] mod 2 = 0) and (a[i] mod 7 <> 0) then
-      if a[i] > m2 then
-        m2 := a[i];
-  end;
-
-  if (f14 = 0) and (f7 = 0) and (f2 = 0) then
-  begin
-    Writeln(0);
-    Writeln('No');
-    exit;
-  end;
-
-
-  Writeln(max(m14 * m, m7 * m2));
-  O := (max(m14 * m, m7 * m2));
-  Writeln(ifthen(O = R, 'Yes', 'No'));
 end.
