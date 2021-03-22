@@ -28,7 +28,7 @@
     </RunParams>
     <Units Count="1">
       <Unit0>
-        <Filename Value="optimal2.pas"/>
+        <Filename Value="optimal2.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
     </Units>
