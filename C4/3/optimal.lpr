@@ -1,56 +1,52 @@
-program optimal;
+program optimal2;
 
 uses
   Math, StrUtils;
 
-const
-  LIM = 1000;
-
 var
-  a: array[1..LIM] of longint;
-  i, n, R, fmax, smax, f, ci: longint;
+  n, i, x, answer, R, m, m14, m2, m7: longint;
 
 begin
   readln(n);
-  for i := 1 to n do
-    readln(a[i]);
-  readln(R);
 
-  fmax := 0;
-  smax := 0;
-  f := 0;
+  m := 0;  //тк в последовательности все числа положительные
+  m14 := 0;
+  m7 := 0;
+  m2 := 0;
   for i := 1 to n do
-    if (a[i] mod 2 = 0) or (a[i] mod 7 = 0) or (a[i] mod 14 = 0) or ((a[i] * fmax) mod 14 = 0) or ((a[i] * smax) mod 14 = 0) then
-      if (fmax < a[i]) or (smax < a[i]) then
-      begin
-        if (a[i] > fmax) and (((smax * a[i]) mod 14 = 0) or ((fmax * a[i]) mod 14 = 0)) then
-        begin
-          if (a[i] * fmax) mod 14 = 0 then
-          begin
-            if fmax <> 0 then
-            begin
-              smax := fmax;
-              fmax := a[i];
-            end
-            else
-              if (a[i] mod 2 = 0) or (a[i] mod 7 = 0) or (a[i] mod 14 = 0) then
-                fmax := a[i];
-          end;
-          if ((fmax * smax) mod 14 = 0) and (fmax * smax < a[i] * smax) then
-            fmax := a[i];
-          f += 1;
-        end;
-      end;
-
-  if f >= 2 then
   begin
-    Writeln(fmax * smax);
-    Writeln(ifthen(fmax * smax = R, 'Yes', 'No'));
+    readln(x);
+
+    if x > m then
+      m := x;
+
+    if x mod 14 = 0 then
+      if x > m14 then
+        m14 := x;
+
+    if (x mod 7 = 0) and (x mod 2 <> 0) then
+      if x > m7 then
+        m7 := x;
+
+    if (x mod 2 = 0) and (x mod 7 <> 0) then
+      if x > m2 then
+        m2 := x;
+  end;
+
+  if (m14 <> 0) and (m <> 0) and (m * m14 > m7 * m2) then
+  begin
+    Writeln(m14 * m);
+    answer := m14 * m;
   end
   else
-  begin
-    Writeln(0);
-    Writeln('No');
-  end;
-end.
+    if (m7 <> 0) and (m2 <> 0) then
+    begin
+      Writeln(m7 * m2);
+      answer := m7 * m2;
+    end;
 
+  readln(R);
+
+  Writeln(ifthen(answer = R, 'Yes', 'No'));
+
+end.

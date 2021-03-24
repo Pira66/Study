@@ -6,4 +6,3 @@ for %%a in (tests\*.a) do (
   del tests\%%~na.out
 )
 del %~n0.exe %~n0.o
-
