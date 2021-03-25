@@ -29,7 +29,7 @@ begin
       else
         mmin := min(mmin, c);
     end;
-    if (c > 1) and (c < 0) or ((sf = 0) and (c > 1) and (c < 0)) then
+    if (c < 1) and (c > 0) or ((sf = 0) and (c > 1) and (c < 0)) then
     begin
       sq += 1;
       if sf = 0 then

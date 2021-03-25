@@ -7,65 +7,84 @@ const
   NLIM = 10000;
 
 var
-  a: array[1..NLIM] of integer;
-  i, n, lim, otwo: integer;
-  otwt: real;
+  a: array[1..NLIM] of real;
+  i, n, lim, kolvo: integer;
+  number: real;
+  s: string;
+  fl: text;
 
-function full_search(): integer;
+procedure ff();
 var
-  f, fm, q, min, mmin, otwo: integer;
-  otwt: real;
+  q, sq, f, sf: integer;
+  mmin, smin: real;
 
 begin
-  f := 0;
-  fm := 0;
   q := 0;
+  sq := 0;
   for i := 1 to n do
   begin
-    if a[i] > 1 then
+    if (a[i] > 1) or ((f = 0) and (a[i] > 1)) then
     begin
       q += 1;
       if f = 0 then
       begin
-        min := a[i];
-        f += 1;
+        mmin := a[i];
+        f := 1;
       end
       else
-      if a[i] < min then
-        min := a[i];
+        mmin := min(mmin, a[i]);
     end;
-    if (a[i] < 1) and (a[i] > 0) then
-      if fm = 0 then
+    if (a[i] < 1) and (a[i] > 0) or ((sf = 0) and (a[i] > 1) and (a[i] < 0)) then
+    begin
+      sq += 1;
+      if sf = 0 then
       begin
-        mmin := a[i];
-        fm += 1;
+        smin := a[i];
+        sf := 1;
       end
       else
-      if a[i] > mmin then
-        mmin := a[i];
+        smin := min(smin, a[i]);
+    end;
   end;
-  if q <> 0 then
+
+  if q > sq then
   begin
-   otwo := q;
-   otwt := min
+    kolvo := q;
+    number := mmin;
   end
   else
   begin
-    otwo := 1;
-    otwt := mmin;
+    kolvo := sq;
+    number := smin;
   end;
 end;
 
 begin
   n := StrToInt(ParamStr(1));
   lim := StrToInt(ParamStr(2));
+
   randomize();
   for i := 1 to n do
-    a[i] := lim*random;       //ошибка
+    a[i] := random * (lim);
 
+  ff();
+
+  Writeln(n);
   for i := 1 to n do
-    Write(a[i], ' ');
+    Write(a[i]: 0: 1, ' ');
 
-  readln();
-  Writeln(otwo, ' ', otwt:0 : 1);
+  readln(s);
+  Writeln(kolvo, ' ',number: 0: 1);
+
+  assign(fl, 'tests/' + s);
+  rewrite(fl);
+  Writeln(fl, n);
+  for i := 1 to n do
+    Writeln(fl, a[i]: 0: 1);
+  close(fl);
+
+  assign(fl, 'tests/' + s +'.a');
+  rewrite(fl);
+  Writeln(fl, kolvo, ' ', number: 0: 1);
+  close(fl);
 end.
