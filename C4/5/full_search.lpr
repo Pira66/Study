@@ -14,10 +14,8 @@ begin
     readln(D[i], K[i]);
 
   for i := 1 to n do
-    if K[i] mod D[i] <> 0 then
-      K[i] := K[i] mod D[i]
-    else
-      K[i] := 0;
+    K[i] := K[i] mod D[i];
+
 
   f := 0;
   pq := 0;
