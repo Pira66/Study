@@ -1,10 +1,8 @@
-program full_search;  //усложнённый вариант с суммой сомножителей
+program full_search;
 
 var
-  i, k, q, x, a, b, y, n, c: longint;
-  mas: array[1..100] of longint;
-  pmaso: array[1..200] of longint;
-  pmast: array[1..200] of longint;
+  i, k, q, x, a, b, y, n, c, r: longint;
+  testmas: ^longint;
 
 procedure p(i: longint; var a, b, q: longint);
   var j: longint;
@@ -26,60 +24,49 @@ begin
   //reset(input);
 
   readln(x, y);
-  n := 0;
+  GetMem(testmas, sizeof(longint));
+  n := -1;
   for i := x to y do
   begin
     p(i, a, b, q);
     if q = 2 then
     begin
       n += 1;
-      mas[n] := a + b;
-      pmaso[n] := a;
-      pmast[n] := b;
+      if (i <> x) and (n = 1) then
+        n += 2;
+      testmas[n] := a + b - 180000;
+      testmas[n + 1] := a;
+      testmas[n + 2] := b;
     end;
   end;
 
-  for i := 1 to n - 1 do
+  for i := 0 to n - 1 do
     for k := i + 1 to n do
-      if mas[k] > mas[i] then
+      if (testmas[i] < 0) and (testmas[k] < 0) then
       begin
-        c := mas[k];
-        mas[k] := mas[i];
-        mas[i] := c;
+        if testmas[i] + 180000 < testmas[k] + 180000 then
+        c := testmas[k] + 180000;
+        testmas[k] := testmas[i] + 180000;
+        testmas[i] := c;
 
-        c := pmaso[k];
-        pmaso[k] := pmaso[i];
-        pmaso[i] := c;
+        c := testmas[k + 1];
+        testmas[k + 1] := testmas[i + 1];
+        testmas[i + 1] := c;
 
-        c := pmast[k];
-        pmast[k] := pmast[i];
-        pmast[i] := c;
+        c := testmas[k + 2];
+        testmas[k + 2] := testmas[i + 2];
+        testmas[i + 2] := c;
       end;
 
-  for i := 1 to n do
-    Writeln(pmaso[i], ' ', pmast[i]);
+  r := 0;
+  for i := 1 to n - 1 do
+  begin
+    r += 1;
+    if i <> 1 then
+      r += 2;
+    Writeln(testmas[r], ' ', testmas[r + 1]);
+  end;
+
+  Freemem(pointer(testmas));
 
 end.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
