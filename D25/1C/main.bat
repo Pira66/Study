@@ -5,4 +5,4 @@ for %%a in (tests\*.a) do (
   fc /A tests\%%~na.out tests\%%~na.a
   del tests\%%~na.out
 )
-del %~n0.exe %~n0.o
+del %~n0.exe

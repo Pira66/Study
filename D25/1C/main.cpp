@@ -18,7 +18,7 @@ int main(){
   int x, y;
   cin >> x >> y;
 
-  int a, b, q:
+  int a, b, q;
   for (int i = x; i <= y; i ++){
     p(i, a, b, q);
     if (q == 2)
