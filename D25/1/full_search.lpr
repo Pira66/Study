@@ -21,8 +21,8 @@ begin
 end;
 
 begin
-  assign(input, 'tests/00');
-  reset(input);
+  (*assign(input, 'tests/00');
+  reset(input);*)
 
   readln(x, y);
 
