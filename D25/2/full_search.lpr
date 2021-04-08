@@ -24,16 +24,16 @@ begin
   //reset(input);
 
   readln(x, y);
-  GetMem(testmas, sizeof(longint));
-  n := -1;
+
+  GetMem(testmas, 50*sizeof(longint));
+
+  n := -3;
   for i := x to y do
   begin
     p(i, a, b, q);
     if q = 2 then
     begin
-      n += 1;
-      if (i <> x) and (n = 1) then
-        n += 2;
+      n += 3;
       testmas[n] := a + b - 180000;
       testmas[n + 1] := a;
       testmas[n + 2] := b;
@@ -45,8 +45,8 @@ begin
       if (testmas[i] < 0) and (testmas[k] < 0) then
       begin
         if testmas[i] + 180000 < testmas[k] + 180000 then
-        c := testmas[k] + 180000;
-        testmas[k] := testmas[i] + 180000;
+        c := testmas[k];
+        testmas[k] := testmas[i];
         testmas[i] := c;
 
         c := testmas[k + 1];
@@ -59,11 +59,13 @@ begin
       end;
 
   r := 0;
-  for i := 1 to n - 1 do
+  for i := 1 to n do
   begin
     r += 1;
     if i <> 1 then
       r += 2;
+    if  (testmas[r] < 0) or (testmas[r + 1] < 0) then
+      continue;
     Writeln(testmas[r], ' ', testmas[r + 1]);
   end;
 
