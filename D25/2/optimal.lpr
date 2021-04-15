@@ -1,14 +1,14 @@
 program optimal;
 
 type masrecord = record
-  s: ^longint;
-  a: ^longint;
-  b: ^longint;
+  a: longint;
+  b: longint;
+  s: longint;
 end;
 
 var
   i, j, q, x, y, n, a, b: longint;
-  mas: masrecord;
+  mas: ^masrecord;
 
 procedure swap(var ps, vs, pa, va, pb, vb: longint);
 var
@@ -46,30 +46,28 @@ begin
 
   readln(x, y);
 
-  GetMem(mas.s, y div x + 1*sizeof(longint));
-  GetMem(mas.a, y div x + 1*sizeof(longint));
-  GetMem(mas.b, y div x + 1*sizeof(longint));
+  GetMem(mas, ((y - x + 1) * 3) * sizeof(longint));
 
-  n := 1;
+  n := 0;
   for i := x to y do
   begin
     p(i, a, b, q);
     if q = 2 then
     begin
-      mas.s[n] := a + b;
-      mas.a[n] := a;
-      mas.b[n] := b;
+      mas[n].s := a + b;
+      mas[n].a := a;
+      mas[n].b := b;
       n += 1;
     end;
   end;
 
-  for i := 1 to n - 1 do
+  for i := 0 to n - 1 do
     for j := i + 1 to n do
-      if mas.s[i] < mas.s[j] then
-        swap(mas.s[i], mas.s[j], mas.a[i], mas.a[j], mas.b[i], mas.b[j]);
+      if mas[i].s < mas[j].s then
+        swap(mas[i].s, mas[j].s, mas[i].a, mas[j].a, mas[i].b, mas[j].b);
 
-  for i := 1 to n do
-    if (mas.a[i] <> 0) and (mas.b[i] <> 0) then
-      Writeln(mas.a[i], ' ', mas.b[i]);
+  for i := 0 to n do
+    if (mas[i].a > 0) and (mas[i].b > 0) then
+      Writeln(mas[i].a, ' ', mas[i].b);
 
 end.

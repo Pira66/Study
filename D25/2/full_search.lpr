@@ -25,7 +25,7 @@ begin
 
   readln(x, y);
 
-  GetMem(testmas, y div x + 1*sizeof(longint));
+  GetMem(testmas, ((y - x + 1)*3) * sizeof(longint));
 
   n := -3;
   for i := x to y do
