@@ -61,8 +61,8 @@ begin
     end;
   end;
 
-  for i := 0 to n - 1 do
-    for j := i + 1 to n do
+  for i := 0 to n - 2 do
+    for j := i + 1 to n - 1 do
       if mas[i].s < mas[j].s then
         swap(mas[i].s, mas[j].s, mas[i].a, mas[j].a, mas[i].b, mas[j].b);
 
