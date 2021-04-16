@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project FileVersion="2" Name="full_search" MainFile="full_search.pas" OutputFileName="full_search.exe" OutputDirectory="" ProjectType="ConsoleApp" IncludeDebugInfo="True" GenerateXMLDoc="False" CommandLineArguments="" AppIcon="" DeleteEXE="True" DeletePDB="True" Product="" Company="" Trademark="" Copyright="" Title="" Description="" MajorVersion="0" MinorVersion="0" BuildVersion="0" RevisionVersion="0">
+  <Items>
+    <Item Type="SourceFile" Name="full_search.pas" Path="full_search.pas" />
+    <Item Type="Reference" AssemblyName="System" FullAssemblyName="System.dll" />
+  </Items>
+</Project>
