@@ -10,21 +10,6 @@ var
   i, j, q, x, y, n, a, b: longint;
   mas: ^masrecord;
 
-procedure swap(var ps, vs, pa, va, pb, vb: longint);
-var
-  c: longint;
-begin
-  c := ps;
-  ps := vs;
-  vs := c;
-  c := pa;
-  pa := va;
-  va := c;
-  c := pb;
-  pb := vb;
-  vb := c;
-end;
-
 procedure p(i: longint; var a, b, q: longint);
   var j: longint;
 begin
@@ -64,9 +49,9 @@ begin
   for i := 0 to n - 2 do
     for j := i + 1 to n - 1 do
       if mas[i].s < mas[j].s then
-        swap(mas[i].s, mas[j].s, mas[i].a, mas[j].a, mas[i].b, mas[j].b);
+        //...
 
-  for i := 0 to n do
+  for i := 0 to n - 1 do
     if (mas[i].a > 0) and (mas[i].b > 0) then
       Writeln(mas[i].a, ' ', mas[i].b);
 

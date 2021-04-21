@@ -1,7 +1,7 @@
 program full_search;
 
 var
-  i, k, q, x, a, b, y, n, c, r: longint;
+  i, k, q, x, a, b, y, n, c, r, rr: longint;
   testmas: ^longint;
 
 procedure p(i: longint; var a, b, q: longint);
@@ -27,24 +27,28 @@ begin
 
   GetMem(testmas, ((y - x + 1)*3) * sizeof(longint));
 
-  n := -3;
+  n := 0; r := 0;
   for i := x to y do
   begin
     p(i, a, b, q);
     if q = 2 then
     begin
-      n += 3;
-      testmas[n] := a + b - 180000;
+      testmas[n] := a + b;
       testmas[n + 1] := a;
       testmas[n + 2] := b;
+      n += 3;
+      r += 1;
     end;
   end;
 
-  for i := 0 to n - 1 do
-    for k := i + 1 to n do
-      if (testmas[i] < 0) and (testmas[k] < 0) then
+  r -= 1;
+  rr := 0;
+  for i := 0 to n - 2 do
+  begin
+    for k := i + 1 to n - 1 do
+      if (i mod 3 = 0) and (k mod  3 = 0) then
       begin
-        if testmas[i] + 180000 < testmas[k] + 180000 then
+        if testmas[i] < testmas[k] then
         c := testmas[k];
         testmas[k] := testmas[i];
         testmas[i] := c;
@@ -56,10 +60,17 @@ begin
         c := testmas[k + 2];
         testmas[k + 2] := testmas[i + 2];
         testmas[i + 2] := c;
+
+        rr += 1;
+        if rr = r then
+          break;
       end;
+    if rr = r then
+      break;
+  end;
 
   r := 0;
-  for i := 1 to n do
+  for i := 1 to n - 2 do
   begin
     r += 1;
     if i <> 1 then
