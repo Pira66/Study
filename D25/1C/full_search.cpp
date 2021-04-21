@@ -13,7 +13,7 @@ void p(int i, int& a, int& b, int& q){
 }
 
 int main(){
-  freopen("tests\\01", "r", stdin);
+  //freopen("tests\\01", "r", stdin);
 
   int x, y;
   cin >> x >> y;
