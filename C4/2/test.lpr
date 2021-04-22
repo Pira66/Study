@@ -83,7 +83,10 @@ begin
     Write(arr[i], ' ');
   Writeln();
 
-  Writeln(full_search, ' ', optimal);
+  if full_search <> optimal then
+    Writeln(full_search, ' ', optimal)
+  else
+    Writeln('otveti v proecte full_search i optimal covpadaut');
 
 end.
 
