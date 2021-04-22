@@ -58,6 +58,9 @@ begin
   for i := 1 to N do
     arr[i] := random(1001);
 
-  Writeln(full_search(), ' ', optimal());
+  if full_search <> optimal then
+    Writeln(full_search, ' ', optimal)
+  else
+    Writeln('otveti v proecte full_search i optimal covpadaut');
 end.
 
