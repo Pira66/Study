@@ -4,7 +4,7 @@ uses
   Math;
 
 const
-  N = 20;
+  N = 5;
   INF = 60000;
 
 var
