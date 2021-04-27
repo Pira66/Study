@@ -7,8 +7,9 @@ type masrecord = record
 end;
 
 var
-  i, j, q, x, y, n, a, b: longint;
+  i, j, q, x, y, n, a, b, m: longint;
   mas: ^masrecord;
+  t: masrecord;
 
 procedure p(i: longint; var a, b, q: longint);
   var j: longint;
@@ -47,12 +48,16 @@ begin
   end;
 
   for i := 0 to n - 2 do
+  begin
+    m := i;
     for j := i + 1 to n - 1 do
-      if mas[i].s < mas[j].s then
-        //...
+      if mas[m].s < mas[j].s then
+        m := j;
+    t := mas[i];
+    mas[i] := mas[m];
+    mas[m] := t;
+  end;
 
   for i := 0 to n - 1 do
-    if (mas[i].a > 0) and (mas[i].b > 0) then
-      Writeln(mas[i].a, ' ', mas[i].b);
-
+    Writeln(mas[i].a, ' ', mas[i].b);
 end.
