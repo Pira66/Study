@@ -1,7 +1,7 @@
 program full_search;
 
 var
-  i, k, q, x, a, b, y, n, c, r, rr: longint;
+  i, k, q, x, a, b, y, n, c, r, min, mmin: longint;
   testmas: ^longint;
 
 procedure p(i: longint; var a, b, q: longint);
@@ -20,8 +20,8 @@ begin
 end;
 
 begin
-  assign(input, 'tests\00');
-  reset(input);
+  //assign(input, 'tests\00');
+  //reset(input);
 
   readln(x, y);
 
@@ -37,36 +37,28 @@ begin
       testmas[n + 1] := a;
       testmas[n + 2] := b;
       n += 3;
-      r += 1;
     end;
   end;
 
-  r -= 1;
-  rr := 0;
   for i := 0 to n - 2 do
   begin
     for k := i + 1 to n - 1 do
-      if (i mod 3 = 0) and (k mod  3 = 0) then
+      if (testmas[i] < testmas[k]) and (i mod 3 = 0) and (k mod  3 = 0) then
       begin
-        if testmas[i] < testmas[k] then
-        c := testmas[k];
-        testmas[k] := testmas[i];
-        testmas[i] := c;
-
-        c := testmas[k + 1];
-        testmas[k + 1] := testmas[i + 1];
-        testmas[i + 1] := c;
-
-        c := testmas[k + 2];
-        testmas[k + 2] := testmas[i + 2];
-        testmas[i + 2] := c;
-
-        rr += 1;
-        if rr = r then
-          break;
+        min := testmas[k];
+        mmin := k;
       end;
-    if rr = r then
-      break;
+    c := min;
+    testmas[mmin] := testmas[i];
+    testmas[i] := c;
+
+    c := testmas[mmin + 1];
+    testmas[mmin + 1] := testmas[i + 1];
+    testmas[i + 1] := c;
+
+    c := testmas[mmin + 2];
+    testmas[mmin + 2] := testmas[i + 2];
+    testmas[i + 2] := c;
   end;
 
   r := 0;
