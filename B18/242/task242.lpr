@@ -13,8 +13,8 @@ begin
   for a := 1000 downto 1 do
   begin
     q := True;
-    for x := 1 to 999 do
-      for y := x + 1 to 1000 do
+    for x := 0 to 1000 do
+      for y := 0 to 1000 do
         if f(x, y, a) =  False then
         begin
           q := False;

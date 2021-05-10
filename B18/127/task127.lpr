@@ -6,7 +6,7 @@ var
 
 function f(x: smallint; a: smallint ): boolean;
 begin
-  f := ((x mod a <> 0) and (x mod 15 = 0)) or ((x mod 18 = 0) or (x mod 15 = 0));
+  f := (x mod a <> 0) or (x mod 18 = 0) or (x mod 15 = 0);
 end;
 
 begin

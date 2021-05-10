@@ -6,7 +6,7 @@ var
 
 function f(x: smallint; a: smallint): boolean;
 begin
-  f := (x and 17 <> 0) or (x and a <> 0) or (x and 58 = 0) or (x and 8 = 0) and (x and a <> 0) and (x and 58 = 0);
+  f := ((x and 17 <> 0) and (x and a <> 0) and (x and 58 = 0)) or ((x and 8 = 0) and (x and a <> 0) and (x and 58 = 0));
 end;
 
 begin
@@ -23,6 +23,6 @@ begin
       break;
   end;
 
-  Writeln(a); //почему 43
+  Writeln(a);
 end.
 
