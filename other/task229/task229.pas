@@ -8,6 +8,7 @@ var
   N, q, a: integer;
 
 begin
+  q := 0;
   for N := 2 to 32000 do
   begin
     s := bin(N);
